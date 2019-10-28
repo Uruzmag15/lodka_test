@@ -25,7 +25,7 @@ SECRET_KEY = 'kn16l+k0(x(h(5m42m8w@^0#$&l&q9%&!2th93nkr2(ml!j-4z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -78,8 +78,11 @@ WSGI_APPLICATION = 'lodka.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',   # set in docker-compose.yml
+        'PORT': 5432,   # default postgres port
     }
 }
 
